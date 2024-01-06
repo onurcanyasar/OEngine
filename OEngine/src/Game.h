@@ -7,7 +7,7 @@ class Game
 
 public:
 	static SDL_Renderer* s_renderer;
-	void init(const std::string& title, int x_pos, int y_pos, int width, int height, bool fullscreen);
+	void init(const std::string& title, int x_pos, int y_pos, int width, int height);
 	void handleEvents();
 	void update();
 	void render();
