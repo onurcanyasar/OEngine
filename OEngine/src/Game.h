@@ -6,7 +6,7 @@ class Game
 {
 
 public:
-	static SDL_Renderer* s_renderer;
+	static SDL_Renderer* renderer;
 	void init(const std::string& title, int x_pos, int y_pos, int width, int height);
 	void handleEvents();
 	void update();

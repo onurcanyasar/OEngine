@@ -7,14 +7,12 @@
 class EntityManager
 {
 public:
-	std::vector<Entity> entities;
 	EntityManager(EntityMemoryPool* entity_memory_pool) : entity_memory_pool_(entity_memory_pool)
 	{
-		entities.resize(entity_memory_pool_->entity_capacity_);
 	}
 
 
-	Entity addEntity();
+	Entity createEntity();
 	void removeEntity(Entity entity);
 	void update();
 

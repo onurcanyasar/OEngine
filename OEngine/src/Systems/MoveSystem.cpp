@@ -5,9 +5,9 @@
 void MoveSystem::update()
 {
 
-	for (std::size_t id = 0; id < entity_memory_pool_->active_vector_.size(); id++)
+	for (std::size_t id = 0; id < entity_memory_pool_->active_vector.size(); id++)
 	{
-		if (entity_memory_pool_->active_vector_[id])
+		if (entity_memory_pool_->active_vector[id])
 		{
 			
 			auto& transform = entity_memory_pool_->getComponent<Transform>(id);

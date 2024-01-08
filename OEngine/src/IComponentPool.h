@@ -1,11 +1,14 @@
 #pragma once
+#include <iostream>
 #include <stdexcept>
 #include <vector>
 
-class IComponentPool
+class IComponentPool 
 {
 public:
 	virtual ~IComponentPool() = default;
+	virtual void resize(std::size_t new_size) = 0;
+
 
 };
 template<typename T>
@@ -13,7 +16,6 @@ class ComponentPool : public IComponentPool
 {
 
 public:
-	std::vector<T> components_;
 	ComponentPool(std::size_t capacity)
 	{
 		components_.resize(capacity);
@@ -39,7 +41,19 @@ public:
 		components_[index] = T(std::forward<Args>(args)...);
 	}
 
-	
+	void resize(std::size_t new_size) override
+	{
+		components_.resize(new_size);
+	}
+
+private:
+	std::vector<T> components_;
+
 
 };
+
+/*All functions are defined in the header file because most of them are templates and the usage of this class is
+makes more sense as a header only library.*/
+
+
 
