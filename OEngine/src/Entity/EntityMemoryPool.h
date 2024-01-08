@@ -28,14 +28,14 @@ public:
 	void removeEntity(const std::size_t entity_id)
 	{
 		active_entity_count_--;
-		available_entity_ids_.push(entity_id);
+		available_entity_ids_.emplace_front(entity_id);
 		active_vector_[entity_id] = false;
 	}
 
 	std::size_t getAvailableEntityID()
 	{
 		const std::size_t entity_id = available_entity_ids_.front();
-		available_entity_ids_.pop();
+		available_entity_ids_.pop_front();
 		return entity_id;
 	}
 
@@ -46,7 +46,7 @@ public:
 		
 		for (std::size_t i = 0; i < entity_capacity_; i++)
 		{
-			available_entity_ids_.push(i);
+			available_entity_ids_.emplace_back(i);
 		}
 	}
 
@@ -62,16 +62,13 @@ public:
 		}
 		
 		components_[typeIndex] = std::make_shared<ComponentPool<T>>(entity_capacity_);
+		component_types_.push_back(typeIndex);
 	}
+
 	template<typename T>
 	T& getComponent(Entity entity)
 	{
 		return getComponentPool<T>()->getComponent(entity.id);
-	}
-	template<typename T>
-	T& getComponent(std::size_t id)
-	{
-		return getComponentPool<T>()->getComponent(id);
 	}
 
 	template<typename T, typename... Args>
@@ -81,6 +78,7 @@ public:
 
 		getComponentPool<T>()->addComponent(entity.id, std::forward<Args>(args)...);
 	}
+
 	template<typename T>
 	std::shared_ptr<ComponentPool<T>> getComponentPool()
 	{
@@ -93,12 +91,12 @@ public:
 
 	
 private:
-	std::queue<std::size_t> available_entity_ids_;
+	std::deque<std::size_t> available_entity_ids_;
 	std::size_t active_entity_count_{ 0 };
 	std::size_t entity_capacity_{ 0 };
 	//std::vector<Entity> entities_;
 	std::unordered_map<std::type_index, std::shared_ptr<IComponentPool>> components_;
-
+	std::vector<std::type_index> component_types_;
 	
 
 

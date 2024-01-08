@@ -141,22 +141,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\App.cpp" />
+    <ClCompile Include="src\Components\Component.cpp" />
+    <ClCompile Include="src\Components\Sprite.cpp" />
+    <ClCompile Include="src\Components\Test.cpp" />
+    <ClCompile Include="src\Components\Transform.cpp" />
+    <ClCompile Include="src\Components\Velocity.cpp" />
     <ClCompile Include="src\Systems\MoveSystem.cpp" />
     <ClCompile Include="src\Systems\SpriteSystem.cpp" />
     <ClCompile Include="src\Entity\EntityManager.cpp" />
     <ClCompile Include="src\IComponentPool.cpp" />
-    <ClCompile Include="src\Components\Sprite.cpp" />
     <ClCompile Include="src\Entity\EntityMemoryPool.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
-    <ClCompile Include="src\Components\Component.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
-    <ClCompile Include="src\Components\Test.cpp" />
-    <ClCompile Include="src\Components\Transform.cpp" />
-    <ClCompile Include="src\Components\Velocity.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\App.h" />
     <ClInclude Include="src\Systems\MoveSystem.h" />
     <ClInclude Include="src\Systems\SpriteSystem.h" />
     <ClInclude Include="src\Entity\EntityManager.h" />

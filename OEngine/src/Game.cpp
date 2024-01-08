@@ -20,7 +20,7 @@ SDL_Renderer* Game::s_renderer{ nullptr };
 SDL_Texture* tex;
 SDL_Texture* tex2;
 SDL_Rect dst;
-EntityMemoryPool memoryPool(500);
+EntityMemoryPool memoryPool(5000);
 EntityManager entityManager(&memoryPool);
 std::shared_ptr<ComponentPool<Sprite>> spritePool;
 SpriteSystem spriteSystem(&memoryPool);
@@ -31,8 +31,7 @@ void Game::init(const std::string& title, int x_pos, int y_pos, int width, int h
 {
 
 
-    int SCREEN_WIDTH = 640;
-    int SCREEN_HEIGHT = 480;
+    
     
     initWindowAndRenderer(title, x_pos, y_pos, width, height);
 
@@ -45,7 +44,7 @@ void Game::init(const std::string& title, int x_pos, int y_pos, int width, int h
     memoryPool.registerComponentType<Transform>();
     memoryPool.registerComponentType<Velocity>();
 
-    for (int i = 0; i < 500; i++)
+    for (int i = 0; i < 5000; i++)
 	{
 		createRedSquareEntity();
 	}
@@ -62,8 +61,8 @@ void createRedSquareEntity()
     float random_x = static_cast<float>(rand() % 10 - 5);
     float random_y = static_cast<float>(rand() % 5 + 1);
     memoryPool.addComponent<Velocity>(e.id, random_x,random_y,random_rotation);
-    float x = rand() % 640;
-    float y = rand() % 480;
+    float x = rand() % 800;
+    float y = rand() % 640;
     float rot = rand() % 360;
     memoryPool.getComponent<Transform>(e.id).position = glm::vec2(x, y);
     memoryPool.getComponent<Transform>(e.id).rotation = rot;

@@ -26,6 +26,7 @@ public:
 		{
 			throw std::out_of_range("Index out of range!");
 		}
+
 		return components_[index];
 	}
 	template<typename... Args>
@@ -37,7 +38,7 @@ public:
 		}
 		components_[index] = T(std::forward<Args>(args)...);
 	}
-private:
+
 	
 
 };

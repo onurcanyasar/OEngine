@@ -12,11 +12,43 @@ Sprite::Sprite(const std::string& imagePath, SDL_Renderer* renderer, const glm::
 	std::cout << "sprite tex loaded" << std::endl;
 }
 
-void Sprite::update() 
+Sprite::Sprite()
 {
-	SDL_RenderCopyF(renderer_, texture_, nullptr, &destRect);
-	
+	std::cout << "Sprite ctor called" << std::endl;
 }
+
+Sprite::~Sprite()
+{
+
+	SDL_DestroyTexture(texture_);
+	std::cout << "Sprite dtor called" << std::endl;
+}
+
+Sprite::Sprite(Sprite&& other) noexcept
+{
+	std::cout << "Sprite move ctor called" << std::endl;
+	
+	texture_ = other.texture_;
+	destRect = other.destRect;
+	renderer_ = other.renderer_;
+	other.texture_ = nullptr;
+
+}
+
+Sprite& Sprite::operator=(Sprite&& other) noexcept
+{
+	std::cout << "Sprite move assignment operator called" << std::endl;
+	if (this != &other)
+	{
+		texture_ = other.texture_;
+		destRect = other.destRect;
+		renderer_ = other.renderer_;
+		other.texture_ = nullptr;
+	}
+	return *this;
+}
+
+
 
 
 

@@ -1,9 +1,8 @@
 #pragma once
 #include <ostream>
 #include <glm/glm.hpp>
-#include "Component.h"
 
-class Transform : Component
+struct Transform
 
 {
 public:

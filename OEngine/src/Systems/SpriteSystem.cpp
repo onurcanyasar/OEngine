@@ -14,7 +14,7 @@ void SpriteSystem::render()
 			sprite.destRect.x = transform.position.x;
 			sprite.destRect.y = transform.position.y;
 
-			SDL_RendererFlip flip = SDL_FLIP_NONE;
+			constexpr SDL_RendererFlip flip = SDL_FLIP_NONE;
 			
 			SDL_RenderCopyExF(sprite.renderer_, sprite.texture_, nullptr, &sprite.destRect, transform.rotation, nullptr, flip);
 
