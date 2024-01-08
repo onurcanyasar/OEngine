@@ -9,7 +9,7 @@ public:
 	MoveSystem(EntityMemoryPool* entity_memory_pool) : entity_memory_pool_(entity_memory_pool)
 	{}
 
-	void update();
+	void update() const;
 
 private:
 	EntityMemoryPool* entity_memory_pool_;
