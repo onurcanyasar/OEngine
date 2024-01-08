@@ -144,7 +144,6 @@
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\Components\Component.cpp" />
     <ClCompile Include="src\Components\Sprite.cpp" />
-    <ClCompile Include="src\Components\Test.cpp" />
     <ClCompile Include="src\Components\Transform.cpp" />
     <ClCompile Include="src\Components\Velocity.cpp" />
     <ClCompile Include="src\Systems\MoveSystem.cpp" />
@@ -169,7 +168,6 @@
     <ClInclude Include="src\Components\Component.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\TextureManager.h" />
-    <ClInclude Include="src\Components\Test.h" />
     <ClInclude Include="src\Components\Transform.h" />
     <ClInclude Include="src\Components\Velocity.h" />
   </ItemGroup>
