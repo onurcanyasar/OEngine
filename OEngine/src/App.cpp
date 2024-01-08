@@ -22,7 +22,7 @@ void App::run() {
 	Uint32 frameStart;
 	int frameTime;
 
-	game.init("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, resolution.first, resolution.second);
+	game.init("OEngine", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, resolution.first, resolution.second);
 
 
 	while (game.isRunning()) {
@@ -38,14 +38,13 @@ void App::run() {
 
 		frameTime = SDL_GetTicks() - frameStart;
 
-		if (frameDelay > frameTime) {
+		if (frameDelay > frameTime) { //to keep the FPS stable
 			SDL_Delay(frameDelay - frameTime);
 		}
 
 	}
 
 	game.clean();
-	//delete game;
 
 
 

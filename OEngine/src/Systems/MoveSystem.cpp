@@ -2,12 +2,12 @@
 
 
 
-void MoveSystem::update()
+void MoveSystem::update() const
 {
 
 	for (std::size_t id = 0; id < entity_memory_pool_->active_vector.size(); id++)
 	{
-		if (entity_memory_pool_->active_vector[id])
+		if (entity_memory_pool_->active_vector[id]) //TODO: gonna change this, this is inefficient. Start from the last active entity and go backwards.
 		{
 			
 			auto& transform = entity_memory_pool_->getComponent<Transform>(id);
@@ -15,8 +15,7 @@ void MoveSystem::update()
 			transform.rotation += velocity.angular_velocity;
 			transform.position.x += velocity.x;
 			transform.position.y += velocity.y;
-			//float random = (rand() % 100) / 30.0f;
-			//	transform.position.y += randomVal;
+			
 
 			
 		}

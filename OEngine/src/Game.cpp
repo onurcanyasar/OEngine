@@ -44,7 +44,8 @@ void Game::init(const std::string& title, int x_pos, int y_pos, int width, int h
 	{
 		createRedSquareEntity();
 	}
-    std::cout << "init finished";
+
+    std::cout << "init finished\n";
     
 
 }
@@ -96,11 +97,12 @@ void Game::update()
 
 void Game::clean()
 {
-    
+
     SDL_DestroyWindow(window_);
 	SDL_DestroyRenderer(Game::renderer);
 	SDL_Quit();
 	IMG_Quit();
+
 }
 
 
