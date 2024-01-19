@@ -14,14 +14,14 @@ Sprite::Sprite(const std::string& imagePath, SDL_Renderer* renderer, const glm::
 
 Sprite::Sprite()
 {
-	std::cout << "Sprite ctor called" << std::endl;
+	//std::cout << "Sprite ctor called" << std::endl;
 }
 
 Sprite::~Sprite()
 {
 
 	SDL_DestroyTexture(texture_);
-	std::cout << "Sprite dtor called" << std::endl;
+	//std::cout << "Sprite dtor called" << std::endl;
 }
 
 Sprite::Sprite(Sprite&& other) noexcept

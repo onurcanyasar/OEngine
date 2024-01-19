@@ -15,7 +15,7 @@ void App::run() {
 	constexpr int FPS = 30;
 	constexpr int frameDelay = 1000 / FPS;
 
-	const auto resolution = std::make_pair<int, int>(800, 640);
+	const auto resolution = std::make_pair<int, int>(800, 600);
 
 	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 

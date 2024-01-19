@@ -141,6 +141,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Systems\ClickToMoveSystem.cpp" />
+    <ClCompile Include="src\Systems\ColliderSystem.cpp" />
+    <ClCompile Include="src\Components\Collider2D.cpp" />
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\Components\Sprite.cpp" />
     <ClCompile Include="src\Components\Transform.cpp" />
@@ -154,8 +157,13 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
+    <ClCompile Include="src\Systems\System.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Utility\SparseSet.h" />
+    <ClInclude Include="src\Systems\ClickToMoveSystem.h" />
+    <ClInclude Include="src\Systems\ColliderSystem.h" />
+    <ClInclude Include="src\Components\Collider2D.h" />
     <ClInclude Include="src\App.h" />
     <ClInclude Include="src\Systems\MoveSystem.h" />
     <ClInclude Include="src\Systems\SpriteSystem.h" />
@@ -168,6 +176,7 @@
     <ClInclude Include="src\TextureManager.h" />
     <ClInclude Include="src\Components\Transform.h" />
     <ClInclude Include="src\Components\Velocity.h" />
+    <ClInclude Include="src\Systems\System.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
