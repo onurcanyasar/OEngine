@@ -141,13 +141,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Systems\CircleCollisonSystem.cpp" />
+    <ClCompile Include="src\Systems\CircleRenderSystem.cpp" />
     <ClCompile Include="src\Systems\ClickToMoveSystem.cpp" />
     <ClCompile Include="src\Systems\ColliderSystem.cpp" />
-    <ClCompile Include="src\Components\Collider2D.cpp" />
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\Components\Sprite.cpp" />
-    <ClCompile Include="src\Components\Transform.cpp" />
-    <ClCompile Include="src\Components\Velocity.cpp" />
     <ClCompile Include="src\Systems\MoveSystem.cpp" />
     <ClCompile Include="src\Systems\SpriteSystem.cpp" />
     <ClCompile Include="src\Entity\EntityManager.cpp" />
@@ -160,10 +159,14 @@
     <ClCompile Include="src\Systems\System.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Components\Circle.h" />
+    <ClInclude Include="src\Components\CircleCollider.h" />
+    <ClInclude Include="src\Systems\CircleCollisonSystem.h" />
+    <ClInclude Include="src\Systems\CircleRenderSystem.h" />
     <ClInclude Include="src\Utility\SparseSet.h" />
     <ClInclude Include="src\Systems\ClickToMoveSystem.h" />
     <ClInclude Include="src\Systems\ColliderSystem.h" />
-    <ClInclude Include="src\Components\Collider2D.h" />
+    <ClInclude Include="src\Components\RectCollider.h" />
     <ClInclude Include="src\App.h" />
     <ClInclude Include="src\Systems\MoveSystem.h" />
     <ClInclude Include="src\Systems\SpriteSystem.h" />

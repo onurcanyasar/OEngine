@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include "../Entity/EntityMemoryPool.h"
-#include "../Components/Collider2D.h"
+#include "../Components/RectCollider.h"
 #include "../Components/Velocity.h"
 #include "../Components/Transform.h"
 class ColliderSystem

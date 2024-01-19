@@ -3,7 +3,7 @@
 #include "../Entity/EntityMemoryPool.h""
 #include "../Components/Transform.h""
 #include "../Components/Velocity.h"
-#include "../Components/Collider2D.h"
+#include "../Components/RectCollider.h"
 class MoveSystem
 {
 public:

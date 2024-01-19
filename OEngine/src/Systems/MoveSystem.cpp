@@ -12,7 +12,7 @@ void MoveSystem::update() const
 	//		
 	//		auto& transform = entity_memory_pool_->getComponent<Transform>(id);
 	//		auto& velocity = entity_memory_pool_->getComponent<Velocity>(id);
-	//		auto& collider = entity_memory_pool_->getComponent<Collider2D>(id);
+	//		auto& collider = entity_memory_pool_->getComponent<RectCollider>(id);
 
 	//		transform.rotation += velocity.angular_velocity;
 	//		transform.prev_position = transform.position;
@@ -54,7 +54,7 @@ void MoveSystem::update() const
 		
 		auto& transform = entity_memory_pool_->getComponent<Transform>(id);
 		auto& velocity = entity_memory_pool_->getComponent<Velocity>(id);
-		auto& collider = entity_memory_pool_->getComponent<Collider2D>(id);
+		auto& collider = entity_memory_pool_->getComponent<RectCollider>(id);
 		//std::cout << "id: " << id  << " velocity: " << velocity.x << std::endl;
 		transform.rotation += velocity.angular_velocity;
 		transform.prev_position = transform.position;
@@ -72,7 +72,7 @@ void MoveSystem::update() const
 		}
 		else if (transform.position.x > 800)
 		{
-							transform.position.x = 800;
+			transform.position.x = 800;
 			velocity.x = -velocity.x;
 		}
 		if (transform.position.y < 0)
