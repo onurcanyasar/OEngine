@@ -9,7 +9,7 @@ public:
 	static SDL_Renderer* renderer;
 	void init(const std::string& title, int x_pos, int y_pos, int width, int height);
 	void handleEvents();
-	void update();
+	void update(float delta_time);
 	void render();
 	void clean();
 	bool isRunning() const { return is_running_; }

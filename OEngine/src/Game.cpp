@@ -22,7 +22,7 @@
 #include "Systems/SpriteSystem.h"
 
 SDL_Renderer* Game::renderer{ nullptr };
-const int pool_size = 3;
+const int pool_size = 201;
 
 std::shared_ptr<EntityMemoryPool> memory_pool = std::make_shared<EntityMemoryPool>(pool_size);
 EntityManager entity_manager(memory_pool.get());
@@ -71,15 +71,16 @@ void Game::init(const std::string& title, int x_pos, int y_pos, int width, int h
 void createRedSquareEntity()
 {
     Entity e = entity_manager.createEntity();
-    constexpr float scale = 20;
-    constexpr float radius = 20;
+    constexpr float scale = 5;
+    constexpr float radius = 10;
     memory_pool->addComponent<Sprite>(e.id, "assets/red_square.png", Game::renderer, glm::vec2(scale, scale));
     memory_pool->addComponent<Transform>(e.id);
     memory_pool->addComponent<CircleCollider>(e.id, radius);
     memory_pool->addComponent<Circle>(e.id, radius);
 
+    float velocity_range{ 100 };
     std::uniform_real_distribution<float> random_rot_dist(-5, 5); 
-    std::uniform_real_distribution<float> random_dist(-4.0, 4.0);
+    std::uniform_real_distribution<float> random_dist(-velocity_range, velocity_range);
     
     
     float random_x = random_dist(rng);
@@ -125,7 +126,7 @@ void Game::handleEvents()
 }
 
 
-void Game::update()
+void Game::update(float delta_time)
 {
 
 
@@ -138,11 +139,11 @@ void Game::update()
 	    entity_manager.removeEntity(i);
         i++;
     }*/
-    auto& trans = memory_pool->getComponent<Transform>(1);
+    /*auto& trans = memory_pool->getComponent<Transform>(1);
     trans.position.x = static_cast<float>(x_mouse);
-    trans.position.y = static_cast<float>(y_mouse);
+    trans.position.y = static_cast<float>(y_mouse);*/
     
-    //move_system.update();
+    move_system.update(delta_time);
     //collider_system.update();
     circle_collision_system.update();
 
@@ -164,8 +165,8 @@ void Game::render()
     SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
     SDL_RenderClear(Game::renderer);
 
-    //SDL_RenderCopy(renderer, tex, nullptr, &dst);
-    sprite_system.render();
+    
+    //sprite_system.render();
     circle_render_system.update();
 
     SDL_RenderPresent(Game::renderer);

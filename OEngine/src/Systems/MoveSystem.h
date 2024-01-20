@@ -10,7 +10,7 @@ public:
 	MoveSystem(EntityMemoryPool* entity_memory_pool) : entity_memory_pool_(entity_memory_pool)
 	{}
 
-	void update() const;
+	void update(float deltaTime) const;
 
 private:
 	EntityMemoryPool* entity_memory_pool_;

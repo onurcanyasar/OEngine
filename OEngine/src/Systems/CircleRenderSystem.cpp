@@ -56,3 +56,50 @@ void CircleRenderSystem::drawCircle(SDL_Renderer* renderer, float center_x, floa
         }
     }
 }
+
+void CircleRenderSystem::drawCircleCosSin(SDL_Renderer* renderer, float center_x, float center_y, float radius)
+{
+	constexpr float pi = 3.14159265358979323846264338327950288419716939937510f;
+	constexpr float pi_half = pi / 2.0; 
+
+    constexpr int precision = 27; 
+    float theta = 0;     
+
+    //starting point
+    float x = radius * cos(theta);//start point
+    float y = radius * sin(theta);//start point
+    float x1 = x;
+    float y1 = y;
+
+    //repeat until theta >= 90;
+	constexpr float step = pi_half / static_cast<float>(precision); // amount to add to theta each time (degrees)
+    for (theta = step; theta <= pi_half; theta += step)//step through only a 90 arc (1 quadrant)
+    {
+        //get new point location
+        x1 = radius * cosf(theta); //new point (+.5 is a quick rounding method)
+        y1 = radius * sinf(theta); //new point (+.5 is a quick rounding method)
+
+        //draw line from previous point to new point, ONLY if point incremented
+        if ((x != x1) || (y != y1))//only draw if coordinate changed
+        {
+            SDL_RenderDrawLineF(renderer, center_x + x, center_y - y, center_x + x1, center_y - y1);//quadrant TR
+            SDL_RenderDrawLineF(renderer, center_x - x, center_y - y, center_x - x1, center_y - y1);//quadrant TL
+            SDL_RenderDrawLineF(renderer, center_x - x, center_y + y, center_x - x1, center_y + y1);//quadrant BL
+            SDL_RenderDrawLineF(renderer, center_x + x, center_y + y, center_x + x1, center_y + y1);//quadrant BR
+        }
+        //save previous points
+        x = x1;//save new previous point
+        y = y1;//save new previous point
+    }
+    //arc did not finish because of rounding, so finish the arc
+    if (x != 0)
+    {
+        x = 0;
+        SDL_RenderDrawLineF(renderer, center_x + x, center_y - y, center_x + x1, center_y - y1);//quadrant TR
+        SDL_RenderDrawLineF(renderer, center_x - x, center_y - y, center_x - x1, center_y - y1);//quadrant TL
+        SDL_RenderDrawLineF(renderer, center_x - x, center_y + y, center_x - x1, center_y + y1);//quadrant BL
+        SDL_RenderDrawLineF(renderer, center_x + x, center_y + y, center_x + x1, center_y + y1);//quadrant BR
+    }
+
+    
+}

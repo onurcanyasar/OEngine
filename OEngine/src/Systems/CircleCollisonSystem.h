@@ -2,6 +2,7 @@
 #include "System.h"
 #include "../Components/CircleCollider.h"
 #include "../Components/Transform.h"
+#include "../Components/Velocity.h"
 class CircleCollisonSystem : public System
 {
 public:
