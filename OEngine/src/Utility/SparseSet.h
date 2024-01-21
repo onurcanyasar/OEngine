@@ -9,9 +9,11 @@ public:
 	std::vector<std::size_t> sparse_vec;
 	std::vector<std::size_t> dense_vec;
 	std::size_t dense_end{ 0 };
+	std::size_t capacity{ 0 };
 
 	SparseSet(const std::size_t size)
-		: sparse_vec(size, 0), dense_vec(size, 0) {}
+		: sparse_vec(size, 0), dense_vec(size, 0), capacity(size)
+	{}
 
 	void insert(std::size_t index) {
 		sparse_vec[index] = dense_end;

@@ -3,7 +3,7 @@
 
 void CircleRenderSystem::update()
 {
-    for(const auto i : entity_memory_pool_->entity_set.dense_vec)
+    for (std::size_t i = 0; i < entities_.dense_end; i++)
     {
 	    
 
@@ -15,7 +15,7 @@ void CircleRenderSystem::update()
 		SDL_SetRenderDrawColor(Game::renderer, 0, 255, 0, 255);
         SDL_RenderDrawPointF(Game::renderer, transform.position.x, transform.position.y);
         //std::cout << "render pos circle" << transform.position.x << " " << transform.position.y << std::endl;
-		drawCircle(Game::renderer, transform.position.x, transform.position.y, circle.radius);
+		drawCircleCosSin(Game::renderer, transform.position.x, transform.position.y, circle.radius);
 	}
 }
 

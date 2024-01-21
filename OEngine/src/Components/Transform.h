@@ -15,7 +15,10 @@ public:
 	{
 		std::cout << "Transform dtor called" << std::endl;
 	
+
 	}
+
+	
 	glm::vec2 position;
 	glm::vec2 prev_position;
 	float rotation;

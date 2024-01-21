@@ -7,7 +7,8 @@ void MoveSystem::update(float deltaTime) const
 
 	for (std::size_t id = 1; id <= entity_memory_pool_->entity_set.dense_end; id++)
 	{
-		
+
+
 		auto& transform = entity_memory_pool_->getComponent<Transform>(id);
 		auto& velocity = entity_memory_pool_->getComponent<Velocity>(id);
 		auto& collider = entity_memory_pool_->getComponent<RectCollider>(id);

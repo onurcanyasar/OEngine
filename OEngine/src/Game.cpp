@@ -17,27 +17,30 @@
 #include "Systems/CircleCollisonSystem.h"
 #include "Systems/CircleRenderSystem.h"
 #include "Systems/ColliderSystem.h"
-
+#include "Systems/CollisionGridSystem.h"
+#include "Utility/Grid.h"
 #include "Systems/MoveSystem.h"
 #include "Systems/SpriteSystem.h"
 
 SDL_Renderer* Game::renderer{ nullptr };
-const int pool_size = 201;
+const int pool_size = 5001;
 
 std::shared_ptr<EntityMemoryPool> memory_pool = std::make_shared<EntityMemoryPool>(pool_size);
 EntityManager entity_manager(memory_pool.get());
 Entity player;
 
-SpriteSystem sprite_system(memory_pool.get());
+SpriteSystem sprite_system(memory_pool);
 MoveSystem move_system(memory_pool.get());
 ColliderSystem collider_system(memory_pool);
 CircleRenderSystem circle_render_system(memory_pool);
 CircleCollisonSystem circle_collision_system(memory_pool);
+CollisionGridSystem collision_grid_system(memory_pool, 60, 80, 10);
 
 std::random_device rd;  // Random device engine
 std::mt19937 rng(rd()); // Initialize Mersennes' twister
 
 void createRedSquareEntity();
+std::unique_ptr<Grid<int>> grid{ nullptr };
 void Game::init(const std::string& title, int x_pos, int y_pos, int width, int height)
 {
 
@@ -54,6 +57,7 @@ void Game::init(const std::string& title, int x_pos, int y_pos, int width, int h
 	{
 		createRedSquareEntity();
 	}
+    //grid = std::make_unique<Grid<int>>(15, 20, 40);
     /*player = entity_manager.createEntity();
     memory_pool->addComponent<Sprite>(player.id, "assets/red_square.png", Game::renderer, glm::vec2(50, 50));
     memory_pool->addComponent<Transform>(player.id);
@@ -66,40 +70,45 @@ void Game::init(const std::string& title, int x_pos, int y_pos, int width, int h
     memory_pool->addComponent<Transform>(e.id);
     memory_pool->addComponent<RectCollider>(e.id, 50, 50);*/
     
+    
 
 }
 void createRedSquareEntity()
 {
     Entity e = entity_manager.createEntity();
     constexpr float scale = 5;
-    constexpr float radius = 10;
-    memory_pool->addComponent<Sprite>(e.id, "assets/red_square.png", Game::renderer, glm::vec2(scale, scale));
+    constexpr float radius = 2.5;
+    memory_pool->addComponent<Sprite>(e.id, "assets/red_circle.png", Game::renderer, glm::vec2(scale, scale));
+    sprite_system.addEntity(e.id);
+
     memory_pool->addComponent<Transform>(e.id);
     memory_pool->addComponent<CircleCollider>(e.id, radius);
+    circle_collision_system.addEntity(e.id);
     memory_pool->addComponent<Circle>(e.id, radius);
+    circle_render_system.addEntity(e.id);
+    collision_grid_system.addEntity(e.id);
+
 
     float velocity_range{ 100 };
-    std::uniform_real_distribution<float> random_rot_dist(-5, 5); 
+    std::uniform_real_distribution<float> random_rot_dist(-15, 150); 
     std::uniform_real_distribution<float> random_dist(-velocity_range, velocity_range);
     
     
-    float random_x = random_dist(rng);
-    
-    
-    float random_y = random_dist(rng);
-    float random_rotation = random_rot_dist(rng);
-    
+    float random_x_vel = random_dist(rng);
+    float random_y_vel = random_dist(rng);
    
-    std::cout << "random x: " << random_x << std::endl;
-    std::cout << "random y: " << random_y << std::endl;
-    memory_pool->addComponent<Velocity>(e.id, random_x,random_y,random_rotation);
+
+    float random_rotation = random_rot_dist(rng);
+    random_rotation = 0;
+   
+    
+    memory_pool->addComponent<Velocity>(e.id, random_x_vel,random_y_vel,random_rotation);
     float x = rand() % 800;
     float y = rand() % 640;
-    //float rot = rand() % 360;
-    float rot{ 0 };
+    float rot = rand() % 360;
     
     memory_pool->getComponent<Transform>(e.id).position = glm::vec2(x, y);
-    memory_pool->getComponent<Transform>(e.id).rotation = rot;
+    memory_pool->getComponent<Transform>(e.id).rotation = 0;
 
 
 }
@@ -145,7 +154,8 @@ void Game::update(float delta_time)
     
     move_system.update(delta_time);
     //collider_system.update();
-    circle_collision_system.update();
+    //circle_collision_system.update();
+    collision_grid_system.update();
 
 }
 
@@ -162,12 +172,28 @@ void Game::clean()
 
 void Game::render()
 {
+    
     SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
     SDL_RenderClear(Game::renderer);
 
     
-    //sprite_system.render();
-    circle_render_system.update();
+    sprite_system.update();
+    collision_grid_system.grid_.draw();
+
+    SDL_SetRenderDrawColor(Game::renderer, 0, 0, 255, 255);
+    SDL_RenderDrawPoint(Game::renderer, x_mouse, y_mouse);
+    //auto p = grid->getWorldToCellCenter(glm::vec2(x_mouse, y_mouse));
+    SDL_SetRenderDrawColor(Game::renderer, 0, 255, 0, 255);
+    
+    /*SDL_Rect rect;
+    rect.w = 5;
+    rect.h = 5;
+    rect.x = p.x - rect.w / 2;
+    rect.y = p.y - rect.h / 2;
+    SDL_RenderFillRect(Game::renderer, &rect);*/
+    
+    
+    //circle_render_system.update();
 
     SDL_RenderPresent(Game::renderer);
 }

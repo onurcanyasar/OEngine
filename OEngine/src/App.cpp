@@ -12,10 +12,10 @@ void App::run() {
 
 
 	Game game;
-	constexpr int FPS = 60;
+	constexpr int FPS = 120;
 	constexpr int frameDelay = 1000 / FPS;
 
-	const auto resolution = std::make_pair<int, int>(800, 600);
+	const auto resolution = std::make_pair<int, int>(801, 601);
 
 	std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
 

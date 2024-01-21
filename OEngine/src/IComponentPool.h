@@ -39,7 +39,7 @@ public:
 			throw std::out_of_range("Index out of range!");
 		}
 		std::cout << "adding component" << std::endl;
-		components_[index] = T((args)...);
+		components_[index] = std::move(T(args...));
 	}
 
 	void resize(std::size_t new_size) override
