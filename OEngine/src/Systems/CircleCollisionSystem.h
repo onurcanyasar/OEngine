@@ -3,9 +3,13 @@
 #include "../Components/CircleCollider.h"
 #include "../Components/Transform.h"
 #include "../Components/Velocity.h"
-class CircleCollisonSystem : public System
+class CircleCollisionSystem : public System
 {
 public:
-	CircleCollisonSystem(std::shared_ptr<EntityMemoryPool> const& entity_memory_pool) : System(entity_memory_pool) {}
+	explicit CircleCollisionSystem(EntityMemoryPool* entity_memory_pool)
+		: System(entity_memory_pool)
+	{
+	}
+
 	void update() override;
 };

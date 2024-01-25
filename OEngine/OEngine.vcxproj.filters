@@ -60,7 +60,7 @@
     <ClCompile Include="src\Systems\CircleRenderSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Systems\CircleCollisonSystem.cpp">
+    <ClCompile Include="src\Systems\CircleCollisionSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Components\CollisionGrid.cpp">
@@ -134,7 +134,7 @@
     <ClInclude Include="src\Components\CircleCollider.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Systems\CircleCollisonSystem.h">
+    <ClInclude Include="src\Systems\CircleCollisionSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Entity\ECS.h">

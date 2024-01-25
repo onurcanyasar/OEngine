@@ -143,7 +143,7 @@
   <ItemGroup>
     <ClCompile Include="src\Components\CollisionGrid.cpp" />
     <ClCompile Include="src\Systems\CircleCollisionViaUniformGridSystem.cpp" />
-    <ClCompile Include="src\Systems\CircleCollisonSystem.cpp" />
+    <ClCompile Include="src\Systems\CircleCollisionSystem.cpp" />
     <ClCompile Include="src\Systems\CircleRenderSystem.cpp" />
     <ClCompile Include="src\Systems\ClickToMoveSystem.cpp" />
     <ClCompile Include="src\Systems\ColliderSystem.cpp" />
@@ -167,7 +167,7 @@
     <ClInclude Include="src\Components\CollisionGrid.h" />
     <ClInclude Include="src\Entity\ECS.h" />
     <ClInclude Include="src\Systems\CircleCollisionViaUniformGridSystem.h" />
-    <ClInclude Include="src\Systems\CircleCollisonSystem.h" />
+    <ClInclude Include="src\Systems\CircleCollisionSystem.h" />
     <ClInclude Include="src\Systems\CircleRenderSystem.h" />
     <ClInclude Include="src\Systems\CollisionGridSystem.h" />
     <ClInclude Include="src\Utility\Grid.h" />

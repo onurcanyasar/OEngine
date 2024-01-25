@@ -2,8 +2,8 @@
 
 void ColliderSystem::update()
 {
-	for (std::size_t id = 0; id < entity_memory_pool_->active_vector.size(); id++)
-	{
+	for (std::size_t i = 0; i < entities_.dense_end; i++) {
+		const std::size_t id = entities_.dense_vec[i];
 		if (!entity_memory_pool_->active_vector[id]) continue;
 		
 		auto& collider = entity_memory_pool_->getComponent<RectCollider>(id);

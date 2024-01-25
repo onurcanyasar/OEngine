@@ -1,18 +1,22 @@
 #pragma once
 
-#include "../Entity/EntityMemoryPool.h""
-#include "../Components/Transform.h""
-#include "../Components/Velocity.h"
-#include "../Components/RectCollider.h"
-class MoveSystem
+#include "System.h"
+
+class MoveSystem : public System
 {
 public:
-	MoveSystem(EntityMemoryPool* entity_memory_pool) : entity_memory_pool_(entity_memory_pool)
-	{}
+	MoveSystem(EntityMemoryPool* entity_memory_pool)
+		: System(entity_memory_pool)
+	{
+	}
 
-	void update(float deltaTime) const;
+	void update() override;
 
+	void updateDeltaTime(float delta_time)
+	{
+		this->delta_time_ = delta_time;
+	}
 private:
-	EntityMemoryPool* entity_memory_pool_;
+	float delta_time_ {};
 };
 

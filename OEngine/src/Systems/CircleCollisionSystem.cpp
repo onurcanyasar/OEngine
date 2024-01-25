@@ -1,8 +1,8 @@
-﻿#include "CircleCollisonSystem.h"
+﻿#include "CircleCollisionSystem.h"
 
-void CircleCollisonSystem::update()
+void CircleCollisionSystem::update()
 {
-	for (std::size_t i = 1; i <= entity_memory_pool_->entity_set.dense_end; i++)
+	for (std::size_t i = 0; i < entities_.dense_end; i++) 
 	{
 		std::size_t entity_id = entity_memory_pool_->entity_set.dense_vec[i];
 		auto& transform = entity_memory_pool_->getComponent<Transform>(entity_id);

@@ -9,9 +9,7 @@ class SpriteSystem : public System
 {
 
 public:
-	SpriteSystem() = default;
-
-	explicit SpriteSystem(std::shared_ptr<EntityMemoryPool> const& entity_memory_pool)
+	explicit SpriteSystem(EntityMemoryPool* entity_memory_pool)
 		: System(entity_memory_pool)
 	{
 	}

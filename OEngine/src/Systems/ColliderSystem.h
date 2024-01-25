@@ -4,13 +4,18 @@
 #include "../Components/RectCollider.h"
 #include "../Components/Velocity.h"
 #include "../Components/Transform.h"
-class ColliderSystem
+#include "System.h"
+class ColliderSystem : public System
 {
 public:
-	ColliderSystem(std::shared_ptr<EntityMemoryPool> const& entity_memory_pool) : entity_memory_pool_(entity_memory_pool) {}
-	void update();
+	explicit ColliderSystem(EntityMemoryPool* entity_memory_pool)
+		: System(entity_memory_pool)
+	{
+	}
+
+	void update() override;
 
 private:
-	std::shared_ptr<EntityMemoryPool> entity_memory_pool_;
+	
 };
 

@@ -8,13 +8,11 @@ class System
 public:
 	friend class SystemManager;
 	virtual ~System() = default;
-	System() = default;
 
 	virtual void update() = 0;
 
-	System(std::shared_ptr<EntityMemoryPool> const& entity_memory_pool)
-	: entity_memory_pool_(entity_memory_pool),
-	entities_(entity_memory_pool_->entity_set.capacity) {}
+	explicit System(EntityMemoryPool* entity_memory_pool)
+	: entities_(entity_memory_pool->entity_set.capacity), entity_memory_pool_(entity_memory_pool) {}
 
 	void addEntity(Entity entity)
 	{
@@ -26,8 +24,8 @@ public:
 	}
 
 protected:
-	std::shared_ptr<EntityMemoryPool> entity_memory_pool_;
 	SparseSet entities_;
+	EntityMemoryPool* entity_memory_pool_;
 
 };
 

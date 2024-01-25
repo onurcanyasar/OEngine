@@ -4,7 +4,7 @@
 class ClickToMoveSystem : public System
 {
 public:
-	explicit ClickToMoveSystem(std::shared_ptr<EntityMemoryPool> const& entity_memory_pool)
+	explicit ClickToMoveSystem(EntityMemoryPool* entity_memory_pool)
 		: System(entity_memory_pool)
 	{
 	}

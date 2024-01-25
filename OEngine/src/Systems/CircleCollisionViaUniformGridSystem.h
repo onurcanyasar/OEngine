@@ -4,9 +4,7 @@
 class CircleCollisionViaUniformGridSystem : public System
 {
 public:
-	CircleCollisionViaUniformGridSystem() = default;
-
-	explicit CircleCollisionViaUniformGridSystem(std::shared_ptr<EntityMemoryPool> const& entity_memory_pool)
+	explicit CircleCollisionViaUniformGridSystem(EntityMemoryPool* entity_memory_pool)
 		: System(entity_memory_pool)
 	{
 	}

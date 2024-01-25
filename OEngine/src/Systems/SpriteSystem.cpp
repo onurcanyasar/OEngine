@@ -3,7 +3,7 @@
 
 void SpriteSystem::update()
 {
-	for (std::size_t i = 0; i < entities_.dense_vec.size(); i++) {
+	for (std::size_t i = 0; i < entities_.dense_end; i++) {
 
 		const auto id = entity_memory_pool_->entity_set.dense_vec[i];
 		auto& sprite = entity_memory_pool_->getComponent<Sprite>(id);
@@ -21,7 +21,8 @@ void SpriteSystem::update()
 			static_cast<int>(sprite.destRect.w),
 			static_cast<int>(sprite.destRect.h)
 		};
-		SDL_RenderCopyEx(sprite.renderer_, sprite.texture_, nullptr, &destRect, transform.rotation, nullptr, flip);
+		//std::cout << "update pos sprite" << transform.position.x << " " << transform.position.y << std::endl;
+		SDL_RenderCopyExF(sprite.renderer_, sprite.texture_, nullptr, &sprite.destRect, transform.rotation, nullptr, flip);
 
 		
 	}

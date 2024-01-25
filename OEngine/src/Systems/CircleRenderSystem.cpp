@@ -11,7 +11,7 @@ void CircleRenderSystem::update()
         if (entity_id == 0) continue;
 		const auto& circle = entity_memory_pool_->getComponent<Circle>(entity_id);
 		const auto& transform = entity_memory_pool_->getComponent<Transform>(entity_id);
-
+        
 		SDL_SetRenderDrawColor(Game::renderer, 0, 255, 0, 255);
         SDL_RenderDrawPointF(Game::renderer, transform.position.x, transform.position.y);
         //std::cout << "render pos circle" << transform.position.x << " " << transform.position.y << std::endl;
@@ -28,7 +28,7 @@ void CircleRenderSystem::drawCircle(SDL_Renderer* renderer, float center_x, floa
     float tx = 1;
     float ty = 1;
     float error = (tx - diameter);
-
+    
     while (x >= y)
     {
         //  Each of the following renders an octant of the circle
@@ -64,7 +64,7 @@ void CircleRenderSystem::drawCircleCosSin(SDL_Renderer* renderer, float center_x
 
     constexpr int precision = 27; 
     float theta = 0;     
-
+    
     //starting point
     float x = radius * cos(theta);//start point
     float y = radius * sin(theta);//start point
