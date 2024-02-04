@@ -9,5 +9,5 @@ A simple 2D ECS game engine developed using C++ and SDL.
 * 2D Rendering and Input Handling via SDL
 
 # Demo
-Collisions of 1000 objects.
+Dynamic Collision Responses of 1000 Entities
 ![](https://github.com/onurcanyasar/OEngine/blob/main/OEngine/OEngine%20Demo.gif)
