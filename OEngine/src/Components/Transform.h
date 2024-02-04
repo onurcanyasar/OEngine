@@ -7,16 +7,7 @@ struct Transform
 
 {
 public:
-	Transform()
-	{
-		std::cout << "Transform ctor called" << std::endl;
-	}
-	~Transform()
-	{
-		std::cout << "Transform dtor called" << std::endl;
 	
-
-	}
 
 	
 	glm::vec2 position;

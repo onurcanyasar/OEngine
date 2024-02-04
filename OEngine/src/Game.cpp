@@ -40,10 +40,9 @@ CollisionGridSystem collision_grid_system(&memory_pool, &grid);
 std::random_device rd;  // Random device engine
 std::mt19937 rng(rd()); // Initialize Mersennes' twister
 
-void createRandomRedCircle();
+void createCircleOnRandomPosition();
 void Game::init(const std::string& title, int x_pos, int y_pos, int width, int height)
 {
-
     initWindowAndRenderer(title, x_pos, y_pos, width, height);
 
     memory_pool.registerComponentType<Sprite>();
@@ -55,25 +54,14 @@ void Game::init(const std::string& title, int x_pos, int y_pos, int width, int h
 
     for (int i = 0; i < pool_size - 1; i++)
 	{
-		createRandomRedCircle();
+		createCircleOnRandomPosition();
 	}
-    //grid = std::make_unique<Grid<int>>(15, 20, 40);
-    /*player = entity_manager.createEntity();
-    memory_pool->addComponent<Sprite>(player.id, "assets/red_square.png", Game::renderer, glm::vec2(50, 50));
-    memory_pool->addComponent<Transform>(player.id);
-    SDL_FRect rect = { 0,0,50,50};
-    memory_pool->addComponent<RectCollider>(player.id, 50, 50);
-    std::cout << "initialization finished\n";
-
-    Entity e = entity_manager.createEntity();
-    memory_pool->addComponent<Sprite>(e.id, "assets/red_square.png", Game::renderer, glm::vec2(50, 50));
-    memory_pool->addComponent<Transform>(e.id);
-    memory_pool->addComponent<RectCollider>(e.id, 50, 50);*/
+    
     
     
 
 }
-void createRandomRedCircle()
+void createCircleOnRandomPosition()
 {
     Entity e = entity_manager.createEntity();
 
@@ -191,22 +179,7 @@ void Game::render()
 
     
     sprite_system.update();
-    collision_grid_system.grid_->draw();
-
-    //SDL_SetRenderDrawColor(Game::renderer, 0, 0, 255, 255);
-    //SDL_RenderDrawPoint(Game::renderer, x_mouse, y_mouse);
-    ////auto p = grid->getWorldToCellCenter(glm::vec2(x_mouse, y_mouse));
-    //SDL_SetRenderDrawColor(Game::renderer, 0, 255, 0, 255);
-    
-    /*SDL_Rect rect;
-    rect.w = 5;
-    rect.h = 5;
-    rect.x = p.x - rect.w / 2;
-    rect.y = p.y - rect.h / 2;
-    SDL_RenderFillRect(Game::renderer, &rect);*/
-    
-    
-    //circle_render_system.update();
+    //collision_grid_system.grid_->draw();
 
     SDL_RenderPresent(Game::renderer);
 }

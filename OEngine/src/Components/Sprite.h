@@ -12,7 +12,7 @@ SDL_Texture* texture_ {};
 SDL_Renderer* renderer_ {};
 
 Sprite(const std::string& imagePath, SDL_Renderer* renderer, const glm::vec2& scale);
-Sprite();
+Sprite() = default;
 ~Sprite();
 Sprite(Sprite&& other) noexcept;
 Sprite& operator=(Sprite&& other) noexcept;
