@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include "System.h"
-#include "../Components/CircleCollider.h"
-#include "../Components/Transform.h"
-#include "../Components/Velocity.h"
+#include "../Components/CircleCollider.hpp"
+#include "../Components/Transform.hpp"
+#include "../Components/Velocity.hpp"
 class CircleCollisionSystem : public System
 {
 public:

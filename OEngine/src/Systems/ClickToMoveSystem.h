@@ -1,6 +1,6 @@
 #pragma once
 #include "System.h"
-#include "../Components/Transform.h"
+#include "../Components/Transform.hpp"
 class ClickToMoveSystem : public System
 {
 public:

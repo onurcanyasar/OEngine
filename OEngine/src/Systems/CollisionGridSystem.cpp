@@ -1,8 +1,8 @@
 ﻿#include "CollisionGridSystem.h"
 
-#include "../Components/CircleCollider.h"
-#include "../Components/Transform.h"
-#include "../Components/Velocity.h"
+#include "../Components/CircleCollider.hpp"
+#include "../Components/Transform.hpp"
+#include "../Components/Velocity.hpp"
 #include "../Game.h"
 
 void CollisionGridSystem::update()

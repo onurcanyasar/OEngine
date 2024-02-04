@@ -1,9 +1,9 @@
 #include "MoveSystem.h"
 
-#include "../Entity/EntityMemoryPool.h""
-#include "../Components/Transform.h""
-#include "../Components/Velocity.h"
-#include "../Components/RectCollider.h"
+#include "../Entity/EntityMemoryPool.h"
+#include "../Components/Transform.hpp"
+#include "../Components/Velocity.hpp"
+#include "../Components/RectCollider.hpp"
 
 void MoveSystem::update()
 {

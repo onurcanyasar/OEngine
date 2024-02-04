@@ -8,12 +8,12 @@
 #include <SDL_video.h>
 
 
-#include "Components/RectCollider.h"
+#include "Components/RectCollider.hpp"
 #include "Entity/EntityMemoryPool.h"
 #include "Entity/EntityManager.h"
 
-#include "Components/Transform.h"
-#include "Components/Sprite.h"
+#include "Components/Transform.hpp"
+#include "Components/Sprite.hpp"
 #include "Systems/CircleCollisionSystem.h"
 #include "Systems/CircleRenderSystem.h"
 #include "Systems/ColliderSystem.h"
@@ -23,7 +23,7 @@
 #include "Systems/SpriteSystem.h"
 
 SDL_Renderer* Game::renderer{ nullptr };
-constexpr int pool_size = 501;
+constexpr int pool_size = 1001;
 
 EntityMemoryPool memory_pool(pool_size);
 EntityManager entity_manager(&memory_pool);
@@ -65,7 +65,7 @@ void createCircleOnRandomPosition()
 {
     Entity e = entity_manager.createEntity();
 
-    std::uniform_real_distribution<float> random_scale_dist(1, 4);
+    std::uniform_real_distribution<float> random_scale_dist(1, 3);
     const float random_scale = random_scale_dist(rng);
 	const float scale = 5 * random_scale;
 	const float radius = 2.5 * random_scale;

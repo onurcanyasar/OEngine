@@ -2,8 +2,8 @@
 #include <SDL_render.h>
 
 #include "System.h"
-#include "../Components/Circle.h"
-#include "../Components/Transform.h"
+#include "../Components/Circle.hpp"
+#include "../Components/Transform.hpp"
 #include "../Game.h"
 
 class CircleRenderSystem : public System

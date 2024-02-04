@@ -83,7 +83,7 @@
     <ClInclude Include="src\Entity\EntityMemoryPool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\Sprite.h">
+    <ClInclude Include="src\Components\Sprite.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\IComponentPool.h">
@@ -92,7 +92,7 @@
     <ClInclude Include="src\Entity\EntityManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\Transform.h">
+    <ClInclude Include="src\Components\Transform.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Systems\SpriteSystem.h">
@@ -101,13 +101,13 @@
     <ClInclude Include="src\Systems\MoveSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\Velocity.h">
+    <ClInclude Include="src\Components\Velocity.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\App.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\RectCollider.h">
+    <ClInclude Include="src\Components\RectCollider.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Systems\ColliderSystem.h">
@@ -122,13 +122,13 @@
     <ClInclude Include="src\Utility\SparseSet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\Circle.h">
+    <ClInclude Include="src\Components\Circle.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Systems\CircleRenderSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\CircleCollider.h">
+    <ClInclude Include="src\Components\CircleCollider.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Systems\CircleCollisionSystem.h">
@@ -140,7 +140,7 @@
     <ClInclude Include="src\Utility\Grid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Components\CollisionGrid.h">
+    <ClInclude Include="src\Components\CollisionGrid.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Systems\CollisionGridSystem.h">

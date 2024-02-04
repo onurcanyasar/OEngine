@@ -1,8 +1,8 @@
 #pragma once
 #include "System.h"
 #include "../Entity/EntityMemoryPool.h"
-#include "../Components/Sprite.h"
-#include "../Components/Transform.h"
+#include "../Components/Sprite.hpp"
+#include "../Components/Transform.hpp"
 
 
 class SpriteSystem : public System

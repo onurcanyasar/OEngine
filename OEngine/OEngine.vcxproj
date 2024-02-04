@@ -161,9 +161,9 @@
     <ClCompile Include="src\Systems\System.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Components\Circle.h" />
-    <ClInclude Include="src\Components\CircleCollider.h" />
-    <ClInclude Include="src\Components\CollisionGrid.h" />
+    <ClInclude Include="src\Components\Circle.hpp" />
+    <ClInclude Include="src\Components\CircleCollider.hpp" />
+    <ClInclude Include="src\Components\CollisionGrid.hpp" />
     <ClInclude Include="src\Entity\ECS.h" />
     <ClInclude Include="src\Systems\CircleCollisionSystem.h" />
     <ClInclude Include="src\Systems\CircleRenderSystem.h" />
@@ -172,19 +172,19 @@
     <ClInclude Include="src\Utility\SparseSet.h" />
     <ClInclude Include="src\Systems\ClickToMoveSystem.h" />
     <ClInclude Include="src\Systems\ColliderSystem.h" />
-    <ClInclude Include="src\Components\RectCollider.h" />
+    <ClInclude Include="src\Components\RectCollider.hpp" />
     <ClInclude Include="src\App.h" />
     <ClInclude Include="src\Systems\MoveSystem.h" />
     <ClInclude Include="src\Systems\SpriteSystem.h" />
     <ClInclude Include="src\Entity\EntityManager.h" />
     <ClInclude Include="src\IComponentPool.h" />
-    <ClInclude Include="src\Components\Sprite.h" />
+    <ClInclude Include="src\Components\Sprite.hpp" />
     <ClInclude Include="src\Entity\EntityMemoryPool.h" />
     <ClInclude Include="src\Entity\Entity.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\TextureManager.h" />
-    <ClInclude Include="src\Components\Transform.h" />
-    <ClInclude Include="src\Components\Velocity.h" />
+    <ClInclude Include="src\Components\Transform.hpp" />
+    <ClInclude Include="src\Components\Velocity.hpp" />
     <ClInclude Include="src\Systems\System.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

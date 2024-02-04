@@ -1,9 +1,9 @@
 #pragma once
 #include <memory>
 #include "../Entity/EntityMemoryPool.h"
-#include "../Components/RectCollider.h"
-#include "../Components/Velocity.h"
-#include "../Components/Transform.h"
+#include "../Components/RectCollider.hpp"
+#include "../Components/Velocity.hpp"
+#include "../Components/Transform.hpp"
 #include "System.h"
 class ColliderSystem : public System
 {
