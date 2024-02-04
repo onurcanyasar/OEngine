@@ -1,18 +1,21 @@
 #pragma once
+#include "System.h"
 #include "../Entity/EntityMemoryPool.h"
 #include "../Components/Sprite.h"
 #include "../Components/Transform.h"
 
 
-class SpriteSystem
+class SpriteSystem : public System
 {
 
 public:
-	SpriteSystem(EntityMemoryPool* entity_memory_pool) : entity_memory_pool_(entity_memory_pool) {}
+	explicit SpriteSystem(EntityMemoryPool* entity_memory_pool)
+		: System(entity_memory_pool)
+	{
+	}
 
-	void render() const;
+	void update() override;
 
-private:
-	EntityMemoryPool* entity_memory_pool_;
+	
 };
 

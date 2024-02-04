@@ -38,7 +38,7 @@ public:
 		{
 			throw std::out_of_range("Index out of range!");
 		}
-		components_[index] = T(std::forward<Args>(args)...);
+		components_[index] = std::move(T(args...));
 	}
 
 	void resize(std::size_t new_size) override

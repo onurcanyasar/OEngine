@@ -9,6 +9,7 @@
 
 #include "Entity.h"
 #include "../IComponentPool.h"
+#include "../Utility/SparseSet.h"
 
 class EntityMemoryPool
 {
@@ -20,7 +21,7 @@ public:
 		const auto entity_id = getAvailableEntityID();
 		const Entity e(entity_id);
 
-
+		entity_set.insert(entity_id);
 		active_vector[entity_id] = true;
 		active_entity_count_++;
 		return e;
@@ -28,7 +29,7 @@ public:
 
 	void registerEntity(Entity entity) //registering an entity that was created outside of the memory pool
 	{
-
+		entity_set.insert(entity.id);
 		active_vector[entity.id] = true;
 		active_entity_count_++;
 	}
@@ -39,6 +40,7 @@ public:
 		available_entity_ids_.emplace_front(entity_id);
 		active_vector[entity_id] = false;
 		active_entity_count_--;
+		entity_set.remove(entity_id);
 	}
 
 	std::size_t getAvailableEntityID()
@@ -52,14 +54,16 @@ public:
 		return entity_id;
 	}
 
-	EntityMemoryPool(const std::size_t entity_capacity) : entity_capacity_(entity_capacity)
+	EntityMemoryPool(const std::size_t entity_capacity)
+		: entity_set(entity_capacity), entity_capacity_(entity_capacity)
 	{
 		active_vector.resize(entity_capacity_);
 		
-		for (std::size_t i = 0; i < entity_capacity_; i++)
+		for (std::size_t i = 1; i <= entity_capacity_; i++)
 		{
 			available_entity_ids_.emplace_back(i);
 		}
+		
 	}
 
 	template <typename T>
@@ -93,14 +97,7 @@ public:
 
 	
 	std::vector<bool> active_vector;
-
-	
-private:
-	std::deque<std::size_t> available_entity_ids_;
-	std::size_t active_entity_count_{ 0 };
-	std::size_t entity_capacity_{ 0 };
-	std::unordered_map<std::type_index, std::shared_ptr<IComponentPool>> components_;
-	std::vector<std::type_index> component_types_; 
+	SparseSet entity_set;
 
 	template<typename T>
 	std::shared_ptr<ComponentPool<T>> getComponentPool()
@@ -110,6 +107,17 @@ private:
 
 		return std::static_pointer_cast<ComponentPool<T>>(components_[typeIndex]);
 	}
+
+	
+private:
+	std::deque<std::size_t> available_entity_ids_;
+	std::size_t active_entity_count_{ 0 };
+	std::size_t entity_capacity_{ 0 };
+	
+	std::unordered_map<std::type_index, std::shared_ptr<IComponentPool>> components_;
+	std::vector<std::type_index> component_types_; 
+
+	
 
 	void resizeIfNecessary(std::size_t new_entity_id)
 	{

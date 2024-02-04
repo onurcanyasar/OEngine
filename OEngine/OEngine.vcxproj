@@ -141,10 +141,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Components\CollisionGrid.cpp" />
+    <ClCompile Include="src\Systems\CircleCollisionSystem.cpp" />
+    <ClCompile Include="src\Systems\CircleRenderSystem.cpp" />
+    <ClCompile Include="src\Systems\ClickToMoveSystem.cpp" />
+    <ClCompile Include="src\Systems\ColliderSystem.cpp" />
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\Components\Sprite.cpp" />
-    <ClCompile Include="src\Components\Transform.cpp" />
-    <ClCompile Include="src\Components\Velocity.cpp" />
+    <ClCompile Include="src\Systems\CollisionGridSystem.cpp" />
     <ClCompile Include="src\Systems\MoveSystem.cpp" />
     <ClCompile Include="src\Systems\SpriteSystem.cpp" />
     <ClCompile Include="src\Entity\EntityManager.cpp" />
@@ -154,8 +158,21 @@
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
+    <ClCompile Include="src\Systems\System.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Components\Circle.h" />
+    <ClInclude Include="src\Components\CircleCollider.h" />
+    <ClInclude Include="src\Components\CollisionGrid.h" />
+    <ClInclude Include="src\Entity\ECS.h" />
+    <ClInclude Include="src\Systems\CircleCollisionSystem.h" />
+    <ClInclude Include="src\Systems\CircleRenderSystem.h" />
+    <ClInclude Include="src\Systems\CollisionGridSystem.h" />
+    <ClInclude Include="src\Utility\Grid.h" />
+    <ClInclude Include="src\Utility\SparseSet.h" />
+    <ClInclude Include="src\Systems\ClickToMoveSystem.h" />
+    <ClInclude Include="src\Systems\ColliderSystem.h" />
+    <ClInclude Include="src\Components\RectCollider.h" />
     <ClInclude Include="src\App.h" />
     <ClInclude Include="src\Systems\MoveSystem.h" />
     <ClInclude Include="src\Systems\SpriteSystem.h" />
@@ -168,6 +185,7 @@
     <ClInclude Include="src\TextureManager.h" />
     <ClInclude Include="src\Components\Transform.h" />
     <ClInclude Include="src\Components\Velocity.h" />
+    <ClInclude Include="src\Systems\System.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
