@@ -69,9 +69,6 @@
     <ClCompile Include="src\Systems\CollisionGridSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Systems\CircleCollisionViaUniformGridSystem.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
@@ -147,9 +144,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Systems\CollisionGridSystem.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Systems\CircleCollisionViaUniformGridSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

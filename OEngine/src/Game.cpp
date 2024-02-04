@@ -23,7 +23,7 @@
 #include "Systems/SpriteSystem.h"
 
 SDL_Renderer* Game::renderer{ nullptr };
-constexpr int pool_size = 1001;
+constexpr int pool_size = 501;
 
 EntityMemoryPool memory_pool(pool_size);
 EntityManager entity_manager(&memory_pool);
@@ -186,7 +186,7 @@ void Game::clean()
 void Game::render()
 {
     
-    SDL_SetRenderDrawColor(Game::renderer, 0, 0, 0, 255);
+    SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
     SDL_RenderClear(Game::renderer);
 
     

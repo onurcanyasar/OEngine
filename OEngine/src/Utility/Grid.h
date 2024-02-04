@@ -44,7 +44,7 @@ public:
 	void draw() const
 	{
 		
-		SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
+		SDL_SetRenderDrawColor(Game::renderer, 0, 0, 0, 255);
 		for (int i = 0; i < num_rows_; i++)
 		{
 			SDL_RenderDrawLine(Game::renderer, 0, i * cell_size_, num_cols_ * cell_size_, i * cell_size_);
