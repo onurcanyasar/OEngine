@@ -11,5 +11,7 @@
 # Demo
 Dynamic Collision Responses of 1000 Entities
 
-https://github.com/onurcanyasar/OEngine/assets/64331104/5352339b-211e-4f74-98ba-83677fb59148
-
+<p align="center">
+  <img src="https://github.com/onurcanyasar/OEngine/blob/main/OEngine/OEngine%20Demo.gif" alt="animated"  width="90%" height="90%"
+    />
+</p>
